@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Add Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Add html2pdf library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h2><i class="fas fa-chart-line"></i> Dashboard</h2>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-btn"><i class="fas fa-box"></i> Inventory</a>
+                <a href="#overview" class="nav-btn active"><i class="fas fa-chart-pie"></i> Overview</a>
+                <a href="#sales" class="nav-btn"><i class="fas fa-dollar-sign"></i> Sales</a>
+                <a href="#inventory" class="nav-btn"><i class="fas fa-warehouse"></i> Stock</a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="dashboard-header">
+                <h1>Business Analytics Dashboard</h1>
+                <div class="header-actions">
+                    <div class="date-filter">
+                        <label for="dateRange">Time Period:</label>
+                        <select id="dateRange">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30">Last 30 Days</option>
+                            <option value="90">Last 90 Days</option>
+                            <option value="365">Last Year</option>
+                            <option value="all">All Time</option>
+                        </select>
+                    </div>
+                    <button id="downloadBtn" class="download-btn">
+                        <i class="fas fa-download"></i> Download Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <p id="totalRevenue">Loading...</p>
+                        <span class="trend" id="revenueTrend"></span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="stat-info">
+                        <h3>Profit Margin</h3>
+                        <p id="profitMargin">Loading...</p>
+                        <span class="trend" id="profitTrend"></span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <div class="stat-info">
+                        <h3>Total Sales</h3>
+                        <p id="totalSales">Loading...</p>
+                        <span class="trend" id="salesTrend"></span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-box"></i>
+                    <div class="stat-info">
+                        <h3>Low Stock Items</h3>
+                        <p id="lowStockCount">Loading...</p>
+                        <span class="alert" id="stockAlert"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Grid -->
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h2>Sales Trends</h2>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h2>Top Selling Items</h2>
+                    <canvas id="topItemsChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h2>Revenue Analysis</h2>
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h2>Profit by Item</h2>
+                    <canvas id="profitChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h2>Profit Margin Trends</h2>
+                    <canvas id="profitMarginChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Insights Section -->
+            <div class="insights-section">
+                <h2>Business Insights</h2>
+                <div class="insights-grid">
+                    <div class="insight-card" id="topPerformer">
+                        <h3><i class="fas fa-trophy"></i> Top Performers</h3>
+                        <div class="insight-content">
+                            <!-- Content will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="insight-card" id="stockRecommendations">
+                        <h3><i class="fas fa-boxes"></i> Stock Recommendations</h3>
+                        <div class="insight-content">
+                            <!-- Content will be populated by JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="insight-card" id="pricingInsights">
+                        <h3><i class="fas fa-tags"></i> Pricing Insights</h3>
+                        <div class="insight-content">
+                            <!-- Content will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="analytics.js"></script>
+</body>
+</html> 

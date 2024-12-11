@@ -1,0 +1,474 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+h2 {
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.actions {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.actions .nav-btn {
+    margin-left: auto;
+}
+
+.inventory-list {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.search-bar {
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f8f8;
+}
+
+.delete-btn {
+    background-color: #ff4444;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+.sell-btn {
+    background-color: #4a90e2;
+    margin-right: 5px;
+}
+
+.sell-btn:hover {
+    background-color: #357abd;
+}
+
+td button {
+    padding: 5px 10px;
+    margin: 2px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    input, textarea {
+        width: 100%;
+    }
+
+    td button {
+        display: block;
+        width: 100%;
+        margin: 2px 0;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+    
+    .actions .nav-btn {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.sales-history {
+    margin-top: 30px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.total-sales {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    border: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-btn:hover {
+    background-color: #1976D2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-btn:active {
+    transform: translateY(0);
+}
+
+.chart-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    width: 50%;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .chart-container {
+        width: 100%;
+    }
+}
+
+/* Dashboard Layout */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 100vh;
+}
+
+.main-content {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Charts Grid */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two charts per row */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.chart-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: 300px; /* Reduced height */
+}
+
+.chart-card h2 {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Make charts responsive within their containers */
+.chart-card canvas {
+    width: 100% !important;
+    height: 250px !important; /* Reduced height */
+}
+
+/* Quick Stats */
+.quick-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .charts-grid {
+        grid-template-columns: 1fr 1fr; /* Two charts per row */
+    }
+    .quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    .charts-grid {
+        grid-template-columns: 1fr; /* One chart per row */
+    }
+    .quick-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.download-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.download-btn:hover {
+    background-color: #45a049;
+}
+
+.download-btn i {
+    font-size: 16px;
+}
+
+@media print {
+    .sidebar, .header-actions {
+        display: none;
+    }
+    
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-content {
+        padding: 0;
+    }
+}
+
+/* Insights Section Styling */
+.insights-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.insights-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.insight-card {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid;
+    transition: transform 0.2s;
+}
+
+.insight-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Different colors for different insight types */
+#topPerformer {
+    border-left-color: #4CAF50;
+}
+
+#stockRecommendations {
+    border-left-color: #2196F3;
+}
+
+#pricingInsights {
+    border-left-color: #FF9800;
+}
+
+.insight-card h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.insight-content {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.insight-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.insight-content li {
+    margin-bottom: 12px;
+    padding-left: 8px;
+    border-left: 2px solid #e0e0e0;
+}
+
+.insight-content strong {
+    color: #333;
+}
+
+.insight-item {
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Responsive design for insights */
+@media (max-width: 1200px) {
+    .insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .insight-card {
+        margin-bottom: 15px;
+    }
+}
+
+/* Alert and recommendation styling */
+.alert {
+    color: #d32f2f;
+    font-weight: 500;
+}
+
+.trend {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
+}
+
+.trend.positive {
+    color: #4CAF50;
+}
+
+.trend.negative {
+    color: #d32f2f;
+}
+
+/* Emoji icons in insights */
+.insight-content li:before {
+    margin-right: 8px;
+}
+
+/* Hover effects for interactive elements */
+.insight-item:hover {
+    background-color: #f5f5f5;
+}
+
+/* Print styles for insights */
+@media print {
+    .insights-section {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .insight-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
